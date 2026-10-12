@@ -1,4 +1,4 @@
-const CACHE = 'black-player-v1';
+const CACHE = 'black-player-v2';
 
 self.addEventListener('install', e => {
   self.skipWaiting();
