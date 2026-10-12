@@ -1,0 +1,21 @@
+{
+  "name": "Black Player",
+  "short_name": "Black Player",
+  "description": "پلیر ویدیو حرفه‌ای",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#000000",
+  "theme_color": "#ff0033",
+  "lang": "fa",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='100' fill='%23000'/%3E%3Ccircle cx='256' cy='256' r='140' fill='none' stroke='%23ff0033' stroke-width='30'/%3E%3Cpath d='M220 190 L340 256 L220 322 Z' fill='%23ff0033'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
