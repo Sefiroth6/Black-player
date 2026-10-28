@@ -209,75 +209,11 @@ input::placeholder,textarea::placeholder{color:var(--muted)}
 .hf{display:flex;justify-content:space-between;margin-top:12px;color:rgba(255,0,0,.5);font-size:.68rem;position:relative;z-index:2}
 .reveal{animation:rv .8s cubic-bezier(.34,1.56,.64,1)}
 @keyframes rv{0%{opacity:0;transform:scale(.7) translateY(30px);filter:blur(10px)}60%{opacity:1;filter:blur(0)}100%{transform:scale(1) translateY(0)}}
-.curtain {
-    position: fixed;
-    top: 0;
-    width: 50vw;
-    height: 100vh;
-    z-index: 2000;
-    transform: translateY(-100%);
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    
-    /* بافت کرکره فلزی */
-    background-color: #1a1a1a;
-    background-image: repeating-linear-gradient(
-        to bottom,
-        #2c2c2c,
-        #2c2c2c 18px,
-        #111111 18px,
-        #111111 22px
-    );
-    box-shadow: inset 0 0 30px rgba(0,0,0,0.9);
-}
-
-/* میله سنگین پایین کرکره */
-.curtain::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 28px;
-    background: linear-gradient(to bottom, #555, #222, #000);
-    border-top: 2px solid #666;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.9);
-    border-radius: 0 0 5px 5px;
-}
-
-/* نوار طلایی VIP بالای میله */
-.curtain::before {
-    content: '';
-    position: absolute;
-    bottom: 28px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: #fbbf24;
-    box-shadow: 0 0 15px #fbbf24, 0 0 30px #fbbf24;
-}
-
-/* جهت پرده چپ و راست */
-.curtain.l {
-    left: 0;
-    border-right: 2px solid #000;
-}
-.curtain.r {
-    right: 0;
-    border-left: 2px solid #000;
-}
-
-/* حالت‌های حرکت (همون حالت‌های قبلی) */
-.curtain.down {
-    transform: translateY(0);
-}
-.curtain.l.slide-out {
-    transform: translateX(-100%);
-}
-.curtain.r.slide-out {
-    transform: translateX(100%);
-}
-.curtain.l{left:0}
-.curtain.r{right:0}
+.curtain{position:fixed;top:0;width:50vw;height:100vh;z-index:2000;transform:translateY(-100%);transition:transform .8s cubic-bezier(.4,0,.2,1);background-color:#1a1a1a;background-image:repeating-linear-gradient(to bottom,#2c2c2c,#2c2c2c 18px,#111111 18px,#111111 22px);box-shadow:inset 0 0 30px rgba(0,0,0,.9)}
+.curtain::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:28px;background:linear-gradient(to bottom,#555,#222,#000);border-top:2px solid #666;box-shadow:0 5px 20px rgba(0,0,0,.9);border-radius:0 0 5px 5px}
+.curtain::before{content:'';position:absolute;bottom:28px;left:0;width:100%;height:3px;background:#fbbf24;box-shadow:0 0 15px #fbbf24,0 0 30px #fbbf24}
+.curtain.l{left:0;border-right:2px solid #000}
+.curtain.r{right:0;border-left:2px solid #000}
 .curtain.down{transform:translateY(0)}
 .curtain.l.slide-out{transform:translateX(-100%)}
 .curtain.r.slide-out{transform:translateX(100%)}
@@ -300,86 +236,7 @@ input::placeholder,textarea::placeholder{color:var(--muted)}
 @keyframes kingParticleFloat{0%{transform:translateY(100vh) scale(0);opacity:0}20%{opacity:1}80%{opacity:1}100%{transform:translateY(-20vh) scale(1);opacity:0}}
 .falling-crown{position:fixed;top:-80px;font-size:34px;color:#fbbf24;text-shadow:0 0 20px #fbbf24,0 0 40px #f59e0b;filter:drop-shadow(0 0 12px #fbbf24);pointer-events:none;z-index:500;animation:crownFall 7s linear forwards}
 @keyframes crownFall{0%{transform:translateY(0) rotate(0) scale(1);opacity:0}5%{opacity:1}90%{opacity:1}100%{transform:translateY(110vh) rotate(720deg) scale(1.3);opacity:0}}
-/* ═══ TICKET ═══ */
-#rtemp{display:none}
-.twrap{position:relative;width:100%;max-width:390px;margin:0 auto;padding:0 15px}
-.ticket-body{position:relative;border-radius:20px;overflow:hidden;background:linear-gradient(160deg,#1a0a2e 0%,#0a0518 100%);transition:background .4s;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.ticket-body::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 15%,rgba(168,85,247,.15) 0%,transparent 40%),radial-gradient(circle at 80% 85%,rgba(236,72,153,.12) 0%,transparent 40%);pointer-events:none;z-index:1}
-.ticket-border{position:absolute;inset:0;border-radius:20px;border:2px solid #a855f7;pointer-events:none;z-index:5}
-.twrap[data-theme="gold"] .ticket-body{background:linear-gradient(160deg,#1a0f00 0%,#100800 100%)}
-.twrap[data-theme="gold"] .ticket-border{border-color:#fbbf24}
-.twrap[data-theme="red"] .ticket-body{background:linear-gradient(160deg,#100000 0%,#100005 100%)}
-.twrap[data-theme="red"] .ticket-border{border-color:#ef4444}
-.twrap[data-theme="blue"] .ticket-body{background:linear-gradient(160deg,#000810 0%,#000510 100%)}
-.twrap[data-theme="blue"] .ticket-border{border-color:#3b82f6}
-.twrap[data-theme="emerald"] .ticket-body{background:linear-gradient(160deg,#001008 0%,#000f08 100%)}
-.twrap[data-theme="emerald"] .ticket-border{border-color:#10b981}
-.twrap[data-theme="dark"] .ticket-body{background:linear-gradient(160deg,#0a0f1a 0%,#050810 100%)}
-.twrap[data-theme="dark"] .ticket-border{border-color:#475569}
-.ticket-notch{position:absolute;width:26px;height:26px;border-radius:50%;background:#000;z-index:10;top:50%;transform:translateY(-50%);box-shadow:inset 0 0 0 2px #a855f7}
-.ticket-notch.left{left:3px}
-.ticket-notch.right{right:3px}
-.twrap[data-theme="gold"] .ticket-notch{box-shadow:inset 0 0 0 2px #fbbf24}
-.twrap[data-theme="red"] .ticket-notch{box-shadow:inset 0 0 0 2px #ef4444}
-.twrap[data-theme="blue"] .ticket-notch{box-shadow:inset 0 0 0 2px #3b82f6}
-.twrap[data-theme="emerald"] .ticket-notch{box-shadow:inset 0 0 0 2px #10b981}
-.twrap[data-theme="dark"] .ticket-notch{box-shadow:inset 0 0 0 2px #475569}
-.ticket-header{position:relative;padding:24px 20px 20px;text-align:center;z-index:2}
-.ticket-brand{font-size:.65rem;color:#d8b4fe;font-weight:bold;letter-spacing:3px;margin-bottom:10px;direction:ltr}
-.crown-badge{width:82px;height:82px;margin:0 auto 12px;position:relative;display:flex;align-items:center;justify-content:center;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.22),rgba(168,85,247,.08) 60%,transparent);border:2px solid rgba(251,191,36,.5);box-shadow:0 0 25px rgba(251,191,36,.4),inset 0 0 15px rgba(251,191,36,.1)}
-.crown-badge::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(251,191,36,.2)}
-.crown-badge svg{width:62px;height:62px}
-.ticket-title-txt{font-size:1.5rem;font-weight:900;letter-spacing:3px;color:#fbbf24;margin-bottom:4px;direction:ltr}
-.ticket-type{font-size:.6rem;letter-spacing:4px;color:#d8b4fe;font-weight:bold;direction:ltr}
-.ticket-serial{display:inline-block;margin-top:12px;font-family:'Courier New',monospace;font-size:.68rem;color:#fbbf24;font-weight:bold;padding:4px 14px;border-radius:4px;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.3);direction:ltr}
-.ticket-perf{position:relative;height:16px;margin:0 15px;border-top:2px dashed rgba(168,85,247,.35);z-index:3}
-.twrap[data-theme="gold"] .ticket-perf{border-top-color:rgba(251,191,36,.35)}
-.twrap[data-theme="red"] .ticket-perf{border-top-color:rgba(239,68,68,.35)}
-.twrap[data-theme="blue"] .ticket-perf{border-top-color:rgba(59,130,246,.35)}
-.twrap[data-theme="emerald"] .ticket-perf{border-top-color:rgba(16,185,129,.35)}
-.twrap[data-theme="dark"] .ticket-perf{border-top-color:rgba(71,85,105,.35)}
-.ticket-info{padding:8px 22px 10px;position:relative;z-index:2}
-.trow{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed rgba(168,85,247,.12)}
-.trow:last-child{border-bottom:none}
-.tlabel{color:#a1a1aa;font-size:.85rem;display:flex;align-items:center;gap:8px}
-.tlabel i{color:#a855f7;font-size:.75rem;width:14px;text-align:center}
-.twrap[data-theme="gold"] .tlabel i{color:#fbbf24}
-.twrap[data-theme="red"] .tlabel i{color:#ef4444}
-.twrap[data-theme="blue"] .tlabel i{color:#3b82f6}
-.twrap[data-theme="emerald"] .tlabel i{color:#10b981}
-.tval{font-weight:bold;color:#fff;font-size:.9rem}
-.ticket-stub{padding:16px 22px 20px;text-align:center;position:relative;z-index:2}
-.barcode-wrap{padding:8px 0 4px;text-align:center}
-.barcode-wrap svg{width:100%;max-height:60px;display:block}
-.barcode-num{font-family:'Courier New',monospace;font-size:.7rem;color:#a1a1aa;direction:ltr;margin-top:4px}
-.ticket-footer{padding:0 20px 18px;text-align:center;position:relative;z-index:2}
-.footer-text{font-size:.78rem;color:#d8b4fe;font-weight:bold;display:flex;align-items:center;justify-content:center;gap:8px}
-.footer-text i{color:#fbbf24;font-size:.85rem}
-.footer-line{height:1px;background:linear-gradient(90deg,transparent,rgba(251,191,36,.3),transparent);margin:10px 0}
-.ticket-capturing *{animation:none!important;transition:none!important}
-.theme-switcher{display:flex;justify-content:center;gap:10px;margin-top:18px;padding:12px;background:rgba(255,255,255,.03);border-radius:50px;border:1px solid rgba(255,255,255,.08)}
-.theme-btn{width:32px;height:32px;border-radius:50%;border:2px solid rgba(255,255,255,.2);cursor:pointer;transition:.2s}
-.theme-btn:hover{transform:scale(1.15);border-color:#fff}
-.theme-btn.active{border-color:#fff;box-shadow:0 0 15px currentColor;transform:scale(1.1)}
-.theme-btn.purple{background:linear-gradient(135deg,#a855f7,#ec4899);color:#a855f7}
-.theme-btn.gold{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#fbbf24}
-.theme-btn.red{background:linear-gradient(135deg,#ef4444,#dc2626);color:#ef4444}
-.theme-btn.blue{background:linear-gradient(135deg,#3b82f6,#0ea5e9);color:#3b82f6}
-.theme-btn.emerald{background:linear-gradient(135deg,#10b981,#059669);color:#10b981}
-.theme-btn.dark{background:linear-gradient(135deg,#475569,#0f172a);color:#475569}
-@media(max-width:500px){.hc{padding:16px}.ht{height:160px;font-size:.7rem}}
-.ticket-watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-25deg);font-size:4.5rem;font-weight:900;letter-spacing:10px;color:rgba(251,191,36,.045);pointer-events:none;white-space:nowrap;user-select:none;z-index:0;direction:ltr}
-.ticket-corner{position:absolute;width:28px;height:28px;z-index:4;border-color:rgba(251,191,36,.55);border-style:solid;border-width:0;pointer-events:none}
-.ticket-corner.tl{top:14px;left:14px;border-top-width:2px;border-left-width:2px;border-top-left-radius:6px}
-.ticket-corner.tr{top:14px;right:14px;border-top-width:2px;border-right-width:2px;border-top-right-radius:6px}
-.ticket-corner.bl{bottom:14px;left:14px;border-bottom-width:2px;border-left-width:2px;border-bottom-left-radius:6px}
-.ticket-corner.br{bottom:14px;right:14px;border-bottom-width:2px;border-right-width:2px;border-bottom-right-radius:6px}
-.twrap[data-theme="purple"] .ticket-corner{border-color:rgba(168,85,247,.6)}
-.twrap[data-theme="red"] .ticket-corner{border-color:rgba(239,68,68,.6)}
-.twrap[data-theme="blue"] .ticket-corner{border-color:rgba(59,130,246,.6)}
-.twrap[data-theme="emerald"] .ticket-corner{border-color:rgba(16,185,129,.6)}
-.twrap[data-theme="dark"] .ticket-corner{border-color:rgba(100,116,139,.6)}
-/* ═════ VIP TICKET — PREMIUM DESIGN ═════ */
+/* ═════ VIP TICKET ═════ */
 .twrap{background:transparent!important;border:none!important;padding:0!important;max-width:400px!important}
 .vip-card{position:relative;width:100%;max-width:400px;margin:0 auto;border-radius:22px;overflow:hidden;background:#0d0618;border:2px solid #fbbf24;font-family:'Tahoma', sans-serif;color:#fff;direction:rtl;padding-bottom:30px}
 .vip-card::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 15% 12%,rgba(251,191,36,.15) 0%,transparent 38%),radial-gradient(circle at 85% 88%,rgba(168,85,247,.15) 0%,transparent 38%);pointer-events:none;z-index:1}
@@ -410,6 +267,7 @@ input::placeholder,textarea::placeholder{color:var(--muted)}
 .vip-sig-line{width:100px;height:1px;background:linear-gradient(90deg,rgba(251,191,36,.7),transparent);margin-bottom:6px;margin-right:0;margin-left:auto}
 .vip-sig-txt{font-family:'Georgia',serif;font-size:.6rem;letter-spacing:.22em;color:rgba(251,191,36,.6);font-style:italic;direction:ltr}
 .vip-stamp{width:70px;height:70px;flex-shrink:0;margin-right:auto;margin-left:0}
+@media(max-width:500px){.hc{padding:16px}.ht{height:160px;font-size:.7rem}}
 </style>
 </head>
 <body>
@@ -481,12 +339,10 @@ input::placeholder,textarea::placeholder{color:var(--muted)}
         <div class="vip-card">
             <div class="vip-frame"></div>
             <div class="vip-wm">VIP</div>
-            
             <svg class="vip-orn tl" viewBox="0 0 30 30"><path d="M2 2 L2 13 M2 2 L13 2 M2 2 L15 15" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="2.5" cy="2.5" r="1.8" fill="currentColor"/></svg>
             <svg class="vip-orn tr" viewBox="0 0 30 30"><path d="M2 2 L2 13 M2 2 L13 2 M2 2 L15 15" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="2.5" cy="2.5" r="1.8" fill="currentColor"/></svg>
             <svg class="vip-orn bl" viewBox="0 0 30 30"><path d="M2 2 L2 13 M2 2 L13 2 M2 2 L15 15" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="2.5" cy="2.5" r="1.8" fill="currentColor"/></svg>
             <svg class="vip-orn br" viewBox="0 0 30 30"><path d="M2 2 L2 13 M2 2 L13 2 M2 2 L15 15" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="2.5" cy="2.5" r="1.8" fill="currentColor"/></svg>
-            
             <div class="vip-hd">
                 <div class="crown-wrapper">
                     <svg class="vip-crown" viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
@@ -513,7 +369,6 @@ input::placeholder,textarea::placeholder{color:var(--muted)}
                 <div class="vip-rule"><span>◆</span></div>
                 <div class="vip-subtitle">VIP MEMBERSHIP</div>
             </div>
-            
             <div class="vip-body">
                 <div class="vip-field"><span class="vip-lbl">نام کاربری</span><span class="vip-val" id="rn"></span></div>
                 <div class="vip-field"><span class="vip-lbl">آیدی عددی</span><span class="vip-val" id="ru"></span></div>
@@ -521,11 +376,7 @@ input::placeholder,textarea::placeholder{color:var(--muted)}
                 <div class="vip-field"><span class="vip-lbl">تاریخ صدور</span><span class="vip-val" id="rdt"></span></div>
                 <div class="vip-field"><span class="vip-lbl">تاریخ انقضا</span><span class="vip-val" id="re"></span></div>
             </div>
-            
-            <div class="vip-barcode">
-                <svg id="bc"></svg>
-            </div>
-            
+            <div class="vip-barcode"><svg id="bc"></svg></div>
             <div class="vip-ft">
                 <div class="vip-sig">
                     <div class="vip-sig-line"></div>
@@ -550,13 +401,11 @@ function esc(s){if(s==null)return '';return String(s).replace(/&/g,'&amp;').repl
 function copy(t,m){m=m||'کپی شد';const d=()=>Toast.fire({icon:'success',title:m});if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(d).catch(()=>{const ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.top='-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');d()}catch(e){}document.body.removeChild(ta)});else{const ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.top='-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');d()}catch(e){}document.body.removeChild(ta)}}
 async function pasteTo(id){try{const t=await navigator.clipboard.readText();document.getElementById(id).value=t.trim();Toast.fire({icon:'success',title:'پیست شد'})}catch(e){Toast.fire({icon:'info',title:'Ctrl+V'});document.getElementById(id)?.focus()}}
 
-// ═══ FALLING CROWNS ═══
 let crownInterval=null;
 function spawnCrown(){try{const c=document.createElement('i');c.className='fas fa-crown falling-crown';c.style.left=(Math.random()*85+5)+'%';c.style.animationDuration=(Math.random()*2+6)+'s';document.body.appendChild(c);setTimeout(()=>{try{c.remove()}catch(e){}},10000)}catch(e){}}
 function startCrowns(){if(crownInterval)clearInterval(crownInterval);setTimeout(spawnCrown,2000);crownInterval=setInterval(spawnCrown,10000)}
 function stopCrowns(){if(crownInterval){clearInterval(crownInterval);crownInterval=null}document.querySelectorAll('.falling-crown').forEach(c=>{try{c.remove()}catch(e){}})}
 
-// ═══ LINKS ═══
 function cleanLinks(){if(!Array.isArray(db.tgLinks)){db.tgLinks=[];return 0}const b=db.tgLinks.length;db.tgLinks=db.tgLinks.filter(l=>{if(!l||typeof l!=='object')return false;if(typeof l.url!=='string')return false;const u=l.url.trim();if(!u)return false;if(u.includes('<')||u.includes('>')||u.includes('"'))return false;if(!/^https?:\/\//.test(u))return false;if(!l.id||typeof l.id!=='string')return false;return true});if(b!==db.tgLinks.length){localStorage.setItem('vip_db_final',JSON.stringify(db))}return b-db.tgLinks.length}
 function activeLink(){if(!db.tgLinks||!db.tgLinks.length)return null;const n=Date.now();return db.tgLinks.find(l=>l&&l.isActive&&!l.exhausted&&!(l.expiresAt&&new Date(l.expiresAt).getTime()<n)&&!(l.maxUses>0&&l.usedCount>=l.maxUses))||null}
 function incLink(id){const l=db.tgLinks.find(x=>x.id===id);if(!l)return;l.usedCount=(l.usedCount||0)+1;if(l.maxUses>0){const r=l.maxUses-l.usedCount;if(r<=0){l.exhausted=true;Toast.fire({icon:'error',title:'پر شد',timer:5000})}else if(r<=3)Toast.fire({icon:'warning',title:`${r} استفاده`})}save()}
@@ -573,16 +422,13 @@ function updCapPrev(){const e=document.getElementById('capPrev');if(e)e.textCont
 window.forceClean=function(){Swal.fire({title:'⚠️ پاکسازی',html:'<p style="font-size:.9rem">لینک‌های خراب پاک می‌شن.</p>',icon:'warning',showCancelButton:true,confirmButtonText:'پاک کن',cancelButtonText:'انصراف',confirmButtonColor:'#ef4444',background:'var(--card)',color:'var(--text)'}).then(r=>{if(!r.isConfirmed)return;const b=(db.tgLinks||[]).length;db.tgLinks=(db.tgLinks||[]).filter(l=>{if(!l||typeof l!=='object')return false;if(typeof l.url!=='string')return false;const u=l.url.trim();if(!u)return false;if(u.includes('<')||u.includes('>')||u.includes('"'))return false;if(!/^https?:\/\//.test(u))return false;return true});save();adm(8);Toast.fire({icon:'success',title:`${b-db.tgLinks.length} پاک شد`})})};
 window.nukeAll=function(){Swal.fire({title:'💣 پاک همه',html:'<p style="color:var(--danger)">قابل بازگشت نیست!</p>',icon:'error',showCancelButton:true,confirmButtonText:'پاک کن',cancelButtonText:'انصراف',confirmButtonColor:'#ef4444',background:'var(--card)',color:'var(--text)'}).then(r=>{if(r.isConfirmed){db.tgLinks=[];save();adm(8);Toast.fire({icon:'success',title:'پاک شدند'})}})};
 
-// ═══ SNOW ═══
 function genSnowSearch(){const c=document.getElementById('snowSearch');if(!c)return;c.innerHTML='';for(let i=0;i<35;i++){const f=document.createElement('div');f.className='sf';const s=Math.random()*5+2;f.style.width=s+'px';f.style.height=s+'px';f.style.left=Math.random()*100+'%';f.style.animationDuration=(Math.random()*5+5)+'s';f.style.animationDelay=(Math.random()*8)+'s';f.style.opacity=Math.random()*.6+.4;c.appendChild(f)}}
 
-// ═══ HACKER ═══
 let hTimer=null,mAnim=null;
 function startMatrix(){const c=document.getElementById('mc');if(!c)return;const ctx=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;const ch='アイウエオカキクケコサシスセソタチツテト0123456789ABCDEF';const fs=14,cols=Math.floor(c.width/fs),drops=Array(cols).fill(1);function draw(){ctx.fillStyle='rgba(0,0,0,.05)';ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle=Math.random()>0.9?'#ff0':'#f00';ctx.font=fs+'px monospace';for(let i=0;i<drops.length;i++){const t=ch[Math.floor(Math.random()*ch.length)];ctx.fillText(t,i*fs,drops[i]*fs);if(drops[i]*fs>c.height&&Math.random()>.975)drops[i]=0;drops[i]++}mAnim=requestAnimationFrame(draw)}draw()}
 function stopMatrix(){if(mAnim){cancelAnimationFrame(mAnim);mAnim=null}}
 function hackerAnim(tid,cb){if(hTimer){clearInterval(hTimer);hTimer=null}if(mAnim)stopMatrix();const o=document.getElementById('ho'),t=document.getElementById('ht'),f=document.getElementById('hpf'),p=document.getElementById('hp'),s=document.getElementById('hst'),box=document.getElementById('hcBox');o.classList.remove('hidden','fo');t.innerHTML='';f.style.width='0%';p.textContent='0%';startMatrix();box.querySelectorAll('.skull-float, .red-scan').forEach(e=>e.remove());const sk1=document.createElement('div');sk1.className='skull-float';sk1.innerHTML='<i class="fas fa-skull"></i>';sk1.style.top='10%';sk1.style.right='5%';box.appendChild(sk1);const sk2=document.createElement('div');sk2.className='skull-float';sk2.innerHTML='<i class="fas fa-skull"></i>';sk2.style.bottom='10%';sk2.style.left='5%';sk2.style.animationDelay='2s';box.appendChild(sk2);const scan=document.createElement('div');scan.className='red-scan';box.appendChild(scan);const msgs=[{t:'> ⚠ WARNING: UNAUTHORIZED ACCESS',c:'d'},{t:'> INIT DEEP_SCAN_v9.3...',c:''},{t:'> BREACHING FIREWALL ... [OK]',c:'d'},{t:'> TRACING IP ... <span style="color:#f00">HIDDEN</span>',c:'raw'},{t:'> BYPASSING ENCRYPTION ...',c:''},{t:'> ⚡ A.E.S 256-BIT CRACKED',c:'d'},{t:'> ACCESSING CENTRAL DB ...',c:''},{t:'> SCANNING 1,247,893 RECORDS ...',c:''},{t:`> TARGET LOCKED: <span style="color:#f00;font-weight:bold">${esc(tid)}</span>`,c:'raw'},{t:'> DECRYPTING SIGNATURE ...',c:''},{t:'> EXTRACTING PERSONAL DATA ...',c:'d'},{t:'> ████████ 100% COMPLETE',c:'s'},{t:'> ⚠ SYSTEM COMPROMISED',c:'d'}];let pr=0,mi=0,gc=0;hTimer=setInterval(()=>{pr+=Math.random()*.5+.35;if(pr>100)pr=100;f.style.width=pr+'%';p.textContent=Math.floor(pr)+'%';if(pr<15)s.textContent='⚠ DETECTING...';else if(pr<40)s.textContent='BREACHING...';else if(pr<70)s.textContent='DECRYPTING...';else if(pr<95)s.textContent='EXTRACTING...';else s.textContent='COMPROMISED ⚠';const tc=Math.floor((pr/100)*msgs.length);while(mi<tc&&mi<msgs.length){const l=document.createElement('div');l.className='hl '+(msgs[mi].c||'');if(msgs[mi].c==='raw')l.innerHTML=msgs[mi].t;else l.textContent=msgs[mi].t;t.appendChild(l);t.scrollTop=t.scrollHeight;mi++}gc++;if(Math.random()>.75){o.classList.add('mega-glitch');setTimeout(()=>o.classList.remove('mega-glitch'),200)}if(gc%18===0&&pr<100){const fl=document.createElement('div');fl.className='fear-flash';document.body.appendChild(fl);setTimeout(()=>fl.remove(),450)}if(pr>=100){clearInterval(hTimer);hTimer=null;while(mi<msgs.length){const l=document.createElement('div');l.className='hl '+(msgs[mi].c||'');if(msgs[mi].c==='raw')l.innerHTML=msgs[mi].t;else l.textContent=msgs[mi].t;t.appendChild(l);mi++}t.scrollTop=t.scrollHeight;const fl=document.createElement('div');fl.className='fear-flash';document.body.appendChild(fl);setTimeout(()=>fl.remove(),500);setTimeout(()=>{o.classList.add('fo');setTimeout(()=>{o.classList.add('hidden');o.classList.remove('fo');stopMatrix();box.querySelectorAll('.skull-float, .red-scan').forEach(e=>e.remove());if(cb)cb()},500)},1000)}},110)}
 
-// ═══ GEAR + CURTAINS ═══
 let gearInterval=null;
 window.openSettings=function(){
     const cl=document.getElementById('curtainL'),cr=document.getElementById('curtainR');
@@ -614,16 +460,50 @@ window.openSettings=function(){
 };
 window.closeSettings=function(){document.getElementById('drawer').classList.remove('open');document.getElementById('overlay').classList.remove('open')};
 
-// ═══ DB ═══
 const defDB={users:[],ads:[{id:1,title:'اشتراک 1 ماهه',price:'35000'},{id:2,title:'اشتراک 2 ماهه',price:'60000'},{id:3,title:'اشتراک 3 ماهه',price:'85000'},{id:4,title:'اشتراک 6 ماهه',price:'160000'},{id:5,title:'اشتراک 1 ساله',price:'300000'},{id:6,title:'اشتراک 2 ساله',price:'550000'}],history:[],payment:{card:'5892101662670112',name:'مرتضی اسدی',telegram:'Trol6',gateway:''},discounts:{bronze:8,silver:15,gold:25,diamond:30,epic:40,legend:50},tgLinks:[],captionTemplate:`🎬 خوش آمدی به ANIME BLACK\n\n🔗 لینک عضویت:\n{{LINK}}\n\n📌 سریع وارد شو!`};
 
-let db,stored=null;
-try{stored=JSON.parse(localStorage.getItem('vip_db_final')||'null')}catch(e){}
-const fd=window.PRELOADED_DB;
-if(fd&&(fd.users||fd.history)){const ft=fd._updatedAt||0,lt=stored?._updatedAt||0;if(!stored||ft>=lt){db=fd;if(!db._updatedAt)db._updatedAt=Date.now();localStorage.setItem('vip_db_final',JSON.stringify(db))}else db=stored}else if(stored)db=stored;
-else{db=JSON.parse(JSON.stringify(defDB));db._updatedAt=Date.now();localStorage.setItem('vip_db_final',JSON.stringify(db))}
-if(!db.users)db.users=[];if(!db.history)db.history=[];if(!db.ads||!db.ads.length)db.ads=defDB.ads;if(!db.payment)db.payment=defDB.payment;if(!db.payment.gateway)db.payment.gateway='';if(!db.payment.telegram)db.payment.telegram='Trol6';if(!db.discounts)db.discounts=defDB.discounts;if(!db.discounts.epic)db.discounts.epic=30;if(!db.discounts.legend)db.discounts.legend=40;if(!db.tgLinks)db.tgLinks=[];if(!db.captionTemplate)db.captionTemplate=defDB.captionTemplate;
-const cleaned=cleanLinks();if(cleaned>0)console.log('Cleaned',cleaned,'links');
+let db = null, stored = null;
+try { stored = JSON.parse(localStorage.getItem('vip_db_final') || 'null'); } catch(e) {}
+
+async function loadDB() {
+    let remoteDB = null;
+    try {
+        // خواندن دیتابیس از گیت هاب با دور زدن کش
+        const res = await fetch('db.json?t=' + Date.now(), { cache: 'no-store' });
+        if (res.ok) remoteDB = await res.json();
+    } catch(e) {
+        console.log('📡 db.json پیدا نشد یا خطا داشت. از localStorage استفاده میشه.');
+    }
+
+    const remoteTime = remoteDB?._updatedAt || 0;
+    const localTime = stored?._updatedAt || 0;
+
+    if (remoteDB && remoteTime >= localTime) {
+        db = remoteDB;
+        localStorage.setItem('vip_db_final', JSON.stringify(db));
+        console.log('✅ دیتابیس از گیت‌هاب خونده شد');
+    } else if (stored) {
+        db = stored;
+        console.log('✅ دیتابیس از حافظه مرورگر خونده شد');
+    } else {
+        db = JSON.parse(JSON.stringify(defDB));
+        db._updatedAt = Date.now();
+        localStorage.setItem('vip_db_final', JSON.stringify(db));
+    }
+
+    if (!db.users) db.users = [];
+    if (!db.history) db.history = [];
+    if (!db.ads || !db.ads.length) db.ads = defDB.ads;
+    if (!db.payment) db.payment = defDB.payment;
+    if (!db.payment.gateway) db.payment.gateway = '';
+    if (!db.payment.telegram) db.payment.telegram = 'Trol6';
+    if (!db.discounts) db.discounts = defDB.discounts;
+    if (!db.discounts.epic) db.discounts.epic = 30;
+    if (!db.discounts.legend) db.discounts.legend = 40;
+    if (!db.tgLinks) db.tgLinks = [];
+    if (!db.captionTemplate) db.captionTemplate = defDB.captionTemplate;
+    cleanLinks();
+}
 
 let prefs=JSON.parse(localStorage.getItem('vip_prefs'))||{primary:'#8b5cf6',primary2:'#ec4899',radius:'24px',font:'Tahoma',isLight:false,fs:'1',anim:'1'};
 let planFilter='all';
@@ -653,11 +533,28 @@ function loyalty(h){const td=h.reduce((s,r)=>s+(r.dur>5000?365:r.dur),0);const m
 function activity(h,au){const tp=h.length;let lp=null;if(h.length)lp=h.reduce((l,x)=>{const d=new Date(x.dateAdded);return(!l||d>l)?d:l},null);const ds=lp?Math.floor((Date.now()-lp.getTime())/86400000):99999;const ia=au&&getS(au.start,au.dur).rem>0;if(tp>0&&ds>90)return{name:'خیلی وقته ندیدیمت',icon:'fa-heart-broken',color:'#ef4444',desc:'دلت تنگ نشده؟'};if(tp>0&&ds>30&&!ia)return{name:'دلتنگت شدیم',icon:'fa-heart',color:'#ec4899',desc:'منتظرتیم'};if(ia&&tp>=12)return{name:'افسانه',icon:'fa-star',color:'#fbbf24',desc:'اسطوره!'};if(ia&&tp>=7)return{name:'هوادار',icon:'fa-fire',color:'#ef4444',desc:'همیشه'};if(ia&&tp>=4)return{name:'طرفدار',icon:'fa-heart',color:'#ec4899',desc:'قدرت'};if(ia&&tp>=2)return{name:'وفادار',icon:'fa-star',color:'#f59e0b',desc:'ممنون'};if(ia)return{name:'جدید',icon:'fa-sparkles',color:'#06b6d4',desc:'خوش اومدی'};return{name:'تازه',icon:'fa-seedling',color:'#22c55e',desc:'اولین قدم'}}
 function save(){db._updatedAt=Date.now();localStorage.setItem('vip_db_final',JSON.stringify(db));renderAds()}
 
+// 🎯 دانلود فایل db.json
+window.downloadDB=function(){
+    try {
+        db._updatedAt = Date.now();
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(db, null, 2));
+        const dlAnchor = document.createElement('a');
+        dlAnchor.setAttribute("href", dataStr);
+        dlAnchor.setAttribute("download", "db.json");
+        document.body.appendChild(dlAnchor);
+        dlAnchor.click();
+        dlAnchor.remove();
+        Toast.fire({icon:'success', title:'فایل db.json دانلود شد'});
+    } catch(e) {
+        Toast.fire({icon:'error', title:'خطا در ساخت فایل'});
+    }
+};
+
 window.searchU=function(){const q=document.getElementById('q').value.trim();const r=document.getElementById('qres');if(!q){r.classList.add('hidden');renderAds(0);return}r.classList.add('hidden');hackerAnim(q,()=>doSearch(q))};
 let cdTimers=[];
-function doSearch(q){const r=document.getElementById('qres');cdTimers.forEach(t=>clearInterval(t));cdTimers=[];const ql=q.toLowerCase();const au=db.users.find(x=>String(x.uid)===q||(x.uname&&String(x.uname).toLowerCase().replace('@','')===ql.replace('@','')));const uh=(db.history||[]).filter(x=>String(x.uid)===q||(x.uname&&String(x.uname).toLowerCase().replace('@','')===ql.replace('@','')));if(!au&&!uh.length){renderAds(0);r.innerHTML=`<div class="nouser"><i class="fas fa-user-slash icon"></i><h3 style="color:var(--danger);margin-bottom:8px;font-size:1.05rem">اکانتت رو پیدا نکردم</h3><p style="color:var(--muted);font-size:.85rem">آیدی رو دقیق وارد کن 💜</p></div>`;r.classList.remove('hidden');r.classList.add('reveal');setTimeout(()=>r.classList.remove('reveal'),900);return}const loy=loyalty(uh),act=activity(uh,au);let html='';if(au){const s=getS(au.start,au.dur);const c=2*Math.PI*45,o=c*(1-s.per/100);let rc='var(--success)';if(s.per<20)rc='var(--danger)';else if(s.per<50)rc='var(--warning)';html+=`<div class="shero"><svg width="0" height="0" style="position:absolute"><defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${rc}"/><stop offset="1" stop-color="var(--primary)"/></linearGradient></defs></svg><div class="sname">${esc(au.name)}</div><div class="sid">${esc(au.uid)}${au.uname?' • '+esc(au.uname):''}</div><div class="pcircle"><svg viewBox="0 0 100 100"><circle class="cbg" cx="50" cy="50" r="45"/><circle class="cfg" cx="50" cy="50" r="45" stroke-dasharray="${c}" stroke-dashoffset="${o}"/></svg><div class="pcenter"><div class="ppct">${s.per}%</div><div class="plbl">باقی‌مانده</div></div></div><div class="live"><div class="cd"><div class="cdn" id="cdD">0</div><div class="cdl">روز</div></div><div class="cd"><div class="cdn" id="cdH">00</div><div class="cdl">ساعت</div></div><div class="cd"><div class="cdn" id="cdM">00</div><div class="cdl">دقیقه</div></div><div class="cd"><div class="cdn" id="cdS">00</div><div class="cdl">ثانیه</div></div></div><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px"><div class="loyal" style="color:${loy.color};border-color:${loy.color};background:${loy.color}20"><i class="fas ${loy.icon}"></i> ${loy.name}${loy.discount>0?' • '+loy.discount+'% تخفیف':''}</div></div><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:8px"><div class="active" style="color:${act.color};border-color:${act.color};background:${act.color}20"><i class="fas ${act.icon}"></i> ${act.name}</div></div><p style="text-align:center;font-size:.8rem;color:var(--muted);margin-top:8px;font-style:italic">${act.desc}</p><div class="sgrid"><div class="sbox"><div class="icn"><i class="fas fa-calendar-check"></i></div><div class="val">${pD(new Date(s.end).toISOString())}</div><div class="lbl">پایان</div></div><div class="sbox"><div class="icn"><i class="fas fa-shopping-bag"></i></div><div class="val">${uh.length}</div><div class="lbl">خرید</div></div><div class="sbox"><div class="icn"><i class="fas fa-hourglass-half"></i></div><div class="val">${s.days>0?s.days:0}</div><div class="lbl">روز</div></div><div class="sbox"><div class="icn"><i class="fas fa-infinity"></i></div><div class="val">${au.dur>5000?'∞':au.dur+' روز'}</div><div class="lbl">پلن</div></div></div>${loy.discount>0?`<button class="btn bs" style="width:100%;margin-top:18px;font-size:.9rem" onclick="renderAds(${loy.discount});Toast.fire({icon:'success',title:'تخفیف!'});try{confetti({particleCount:60,spread:70})}catch(e){}"><i class="fas fa-gift"></i> اعمال ${loy.discount}% تخفیف</button>`:''}</div>`;const et=s.end;const upd=()=>{const rm=et-Date.now();if(rm<=0){['cdD','cdH','cdM','cdS'].forEach(id=>{const e=document.getElementById(id);if(e)e.innerText='00'});return}const d=Math.floor(rm/86400000),h=Math.floor((rm%86400000)/3600000),m=Math.floor((rm%3600000)/60000),sc=Math.floor((rm%60000)/1000);const sv=(id,v)=>{const e=document.getElementById(id);if(e)e.innerText=String(v).padStart(2,'0')};sv('cdD',d);sv('cdH',h);sv('cdM',m);sv('cdS',sc)};upd();cdTimers.push(setInterval(upd,1000))}else{html+=`<div class="shero" style="text-align:center"><div class="sname" style="margin-bottom:12px">${esc(uh[0]?.name||'کاربر')}</div><div style="display:flex;justify-content:center;margin-bottom:15px"><div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--danger),var(--warning));display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem"><i class="fas fa-clock"></i></div></div><h3 style="color:var(--danger);margin-bottom:8px">تموم شده</h3><p style="color:var(--muted);font-size:.85rem;margin-bottom:15px">${act.desc}</p><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px"><div class="loyal" style="color:${loy.color};border-color:${loy.color};background:${loy.color}20"><i class="fas ${loy.icon}"></i> ${loy.name}</div><div class="active" style="color:${act.color};border-color:${act.color};background:${act.color}20"><i class="fas ${act.icon}"></i> ${act.name}</div></div></div>`}if(uh.length>0){html+=`<details style="background:var(--ibg);border-radius:15px;border:1px solid var(--ibr);margin-top:15px" open><summary style="padding:15px;cursor:pointer;font-weight:bold;display:flex;align-items:center;justify-content:space-between;color:var(--primary);list-style:none"><span><i class="fas fa-history"></i> سوابق (${uh.length})</span></summary><div style="padding:5px 20px 20px"><div class="tlw">${[...uh].reverse().map(h=>`<div class="tli"><div class="tlh"><span class="tlt">${h.dur>5000?'دائمی':h.dur+' روز'}</span><span class="tld">${pD(h.dateAdded||h.start)}</span></div>${h.price?`<div class="tlm"><i class="fas fa-coins"></i> ${fM(h.price)}</div>`:''}</div>`).join('')}</div></div></details>`}r.innerHTML=html;r.classList.remove('hidden');r.classList.add('reveal');setTimeout(()=>r.classList.remove('reveal'),900);setTimeout(()=>r.scrollIntoView({behavior:'smooth',block:'start'}),100)}
+function doSearch(q){const r=document.getElementById('qres');cdTimers.forEach(t=>clearInterval(t));cdTimers=[];const ql=q.toLowerCase();const au=db.users.find(x=>String(x.uid)===q||(x.uname&&String(x.uname).toLowerCase().replace('@','')===ql.replace('@','')));const uh=(db.history||[]).filter(x=>String(x.uid)===q||(x.uname&&String(x.uname).toLowerCase().replace('@','')===ql.replace('@','')));if(!au&&!uh.length){renderAds(0);r.innerHTML=`<div class="nouser"><i class="fas fa-user-slash icon"></i><h3 style="color:var(--danger);margin-bottom:8px;font-size:1.05rem">رکوردی نیست</h3><p style="color:var(--muted);font-size:.85rem">آیدی رو دقیق وارد کن 💜</p></div>`;r.classList.remove('hidden');r.classList.add('reveal');setTimeout(()=>r.classList.remove('reveal'),900);return}const loy=loyalty(uh),act=activity(uh,au);let html='';if(au){const s=getS(au.start,au.dur);const c=2*Math.PI*45,o=c*(1-s.per/100);let rc='var(--success)';if(s.per<20)rc='var(--danger)';else if(s.per<50)rc='var(--warning)';html+=`<div class="shero"><svg width="0" height="0" style="position:absolute"><defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${rc}"/><stop offset="1" stop-color="var(--primary)"/></linearGradient></defs></svg><div class="sname">${esc(au.name)}</div><div class="sid">${esc(au.uid)}${au.uname?' • '+esc(au.uname):''}</div><div class="pcircle"><svg viewBox="0 0 100 100"><circle class="cbg" cx="50" cy="50" r="45"/><circle class="cfg" cx="50" cy="50" r="45" stroke-dasharray="${c}" stroke-dashoffset="${o}"/></svg><div class="pcenter"><div class="ppct">${s.per}%</div><div class="plbl">باقی‌مانده</div></div></div><div class="live"><div class="cd"><div class="cdn" id="cdD">0</div><div class="cdl">روز</div></div><div class="cd"><div class="cdn" id="cdH">00</div><div class="cdl">ساعت</div></div><div class="cd"><div class="cdn" id="cdM">00</div><div class="cdl">دقیقه</div></div><div class="cd"><div class="cdn" id="cdS">00</div><div class="cdl">ثانیه</div></div></div><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px"><div class="loyal" style="color:${loy.color};border-color:${loy.color};background:${loy.color}20"><i class="fas ${loy.icon}"></i> ${loy.name}${loy.discount>0?' • '+loy.discount+'% تخفیف':''}</div></div><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:8px"><div class="active" style="color:${act.color};border-color:${act.color};background:${act.color}20"><i class="fas ${act.icon}"></i> ${act.name}</div></div><p style="text-align:center;font-size:.8rem;color:var(--muted);margin-top:8px;font-style:italic">${act.desc}</p><div class="sgrid"><div class="sbox"><div class="icn"><i class="fas fa-calendar-check"></i></div><div class="val">${pD(new Date(s.end).toISOString())}</div><div class="lbl">پایان</div></div><div class="sbox"><div class="icn"><i class="fas fa-shopping-bag"></i></div><div class="val">${uh.length}</div><div class="lbl">خرید</div></div><div class="sbox"><div class="icn"><i class="fas fa-hourglass-half"></i></div><div class="val">${s.days>0?s.days:0}</div><div class="lbl">روز</div></div><div class="sbox"><div class="icn"><i class="fas fa-infinity"></i></div><div class="val">${au.dur>5000?'∞':au.dur+' روز'}</div><div class="lbl">پلن</div></div></div>${loy.discount>0?`<button class="btn bs" style="width:100%;margin-top:18px;font-size:.9rem" onclick="renderAds(${loy.discount});Toast.fire({icon:'success',title:'تخفیف!'});try{confetti({particleCount:60,spread:70})}catch(e){}"><i class="fas fa-gift"></i> اعمال ${loy.discount}% تخفیف</button>`:''}</div>`;const et=s.end;const upd=()=>{const rm=et-Date.now();if(rm<=0){['cdD','cdH','cdM','cdS'].forEach(id=>{const e=document.getElementById(id);if(e)e.innerText='00'});return}const d=Math.floor(rm/86400000),h=Math.floor((rm%86400000)/3600000),m=Math.floor((rm%3600000)/60000),sc=Math.floor((rm%60000)/1000);const sv=(id,v)=>{const e=document.getElementById(id);if(e)e.innerText=String(v).padStart(2,'0')};sv('cdD',d);sv('cdH',h);sv('cdM',m);sv('cdS',sc)};upd();cdTimers.push(setInterval(upd,1000))}else{html+=`<div class="shero" style="text-align:center"><div class="sname" style="margin-bottom:12px">${esc(uh[0]?.name||'کاربر')}</div><div style="display:flex;justify-content:center;margin-bottom:15px"><div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--danger),var(--warning));display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem"><i class="fas fa-clock"></i></div></div><h3 style="color:var(--danger);margin-bottom:8px">تموم شده</h3><p style="color:var(--muted);font-size:.85rem;margin-bottom:15px">${act.desc}</p><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px"><div class="loyal" style="color:${loy.color};border-color:${loy.color};background:${loy.color}20"><i class="fas ${loy.icon}"></i> ${loy.name}</div><div class="active" style="color:${act.color};border-color:${act.color};background:${act.color}20"><i class="fas ${act.icon}"></i> ${act.name}</div></div></div>`}if(uh.length>0){html+=`<details style="background:var(--ibg);border-radius:15px;border:1px solid var(--ibr);margin-top:15px" open><summary style="padding:15px;cursor:pointer;font-weight:bold;display:flex;align-items:center;justify-content:space-between;color:var(--primary);list-style:none"><span><i class="fas fa-history"></i> سوابق (${uh.length})</span></summary><div style="padding:5px 20px 20px"><div class="tlw">${[...uh].reverse().map(h=>`<div class="tli"><div class="tlh"><span class="tlt">${h.dur>5000?'دائمی':h.dur+' روز'}</span><span class="tld">${pD(h.dateAdded||h.start)}</span></div>${h.price?`<div class="tlm"><i class="fas fa-coins"></i> ${fM(h.price)}</div>`:''}</div>`).join('')}</div></div></details>`}r.innerHTML=html;r.classList.remove('hidden');r.classList.add('reveal');setTimeout(()=>r.classList.remove('reveal'),900);setTimeout(()=>r.scrollIntoView({behavior:'smooth',block:'start'}),100)}
 
-window.handlePlanClick=function(title,bp,op){Swal.fire({title:'<i class="fas fa-user-check"></i> آیدی عددی',html:`<div style="text-align:center;font-size:.88rem;margin-bottom:15px;color:var(--muted)">آیدی رو وارد کن (خالی=جدید)</div><div style="position:relative"><input id="pcid" type="tel" inputmode="numeric" placeholder="آیدی..." style="text-align:center;font-family:monospace;font-size:1.1rem;margin-bottom:0"><button type="button" class="paste" onclick="pasteTo('pcid')"><i class="fas fa-paste"></i> پیست</button></div>`,background:'var(--card)',color:'var(--text)',showCancelButton:true,confirmButtonText:'ادامه',cancelButtonText:'انصراف',confirmButtonColor:'var(--primary)'}).then(r=>{if(!r.isConfirmed)return;const id=document.getElementById('pcid')?.value.trim()||'';const pp=parseInt(bp)||0,oo=parseInt(op)||0;if(!id)return openInvoice(title,pp,oo,{});const u=db.users.find(x=>String(x.uid)===id);const uh=(db.history||[]).filter(x=>String(x.uid)===id);if(!u&&!uh.length){Swal.fire({icon:'info',title:'کاربر جدید',html:`<p style="font-size:.9rem">آیدی <b>${esc(id)}</b> نیست. قیمت کامل.</p>`,background:'var(--card)',color:'var(--text)',confirmButtonColor:'var(--primary)'}).then(()=>openInvoice(title,pp,oo,{userId:id}));return}const loy=loyalty(uh);const d=loy.discount||0;let fp=pp;if(d>0&&pp>0)fp=pp-Math.floor(pp*d/100);openInvoice(title,fp,oo,{userId:id,userName:u?u.name:(uh[0]?.name||''),discount:d,loyaltyName:loy.name})})};
+window.handlePlanClick=function(title,bp,op){Swal.fire({title:'<i class="fas fa-user-check"></i> شناسایی',html:`<div style="text-align:center;font-size:.88rem;margin-bottom:15px;color:var(--muted)">آیدی رو وارد کن (خالی=جدید)</div><div style="position:relative"><input id="pcid" type="tel" inputmode="numeric" placeholder="آیدی..." style="text-align:center;font-family:monospace;font-size:1.1rem;margin-bottom:0"><button type="button" class="paste" onclick="pasteTo('pcid')"><i class="fas fa-paste"></i> پیست</button></div>`,background:'var(--card)',color:'var(--text)',showCancelButton:true,confirmButtonText:'ادامه',cancelButtonText:'انصراف',confirmButtonColor:'var(--primary)'}).then(r=>{if(!r.isConfirmed)return;const id=document.getElementById('pcid')?.value.trim()||'';const pp=parseInt(bp)||0,oo=parseInt(op)||0;if(!id)return openInvoice(title,pp,oo,{});const u=db.users.find(x=>String(x.uid)===id);const uh=(db.history||[]).filter(x=>String(x.uid)===id);if(!u&&!uh.length){Swal.fire({icon:'info',title:'کاربر جدید',html:`<p style="font-size:.9rem">آیدی <b>${esc(id)}</b> نیست. قیمت کامل.</p>`,background:'var(--card)',color:'var(--text)',confirmButtonColor:'var(--primary)'}).then(()=>openInvoice(title,pp,oo,{userId:id}));return}const loy=loyalty(uh);const d=loy.discount||0;let fp=pp;if(d>0&&pp>0)fp=pp-Math.floor(pp*d/100);openInvoice(title,fp,oo,{userId:id,userName:u?u.name:(uh[0]?.name||''),discount:d,loyaltyName:loy.name})})};
 
 function openInvoice(title,fp,op,opt){opt=opt||{};let pt=fM(fp);if(fp<op)pt=`<del style="color:var(--danger);font-size:.9rem">${fM(op)}</del> <span style="color:var(--success)">${fM(fp)}</span>`;let ub='';if(opt.userId){ub+=`<div style="display:flex;justify-content:space-between;margin-bottom:10px"><span style="color:var(--muted)">آیدی:</span><b style="font-family:monospace;color:var(--primary)">${esc(opt.userId)}</b></div>`;if(opt.userName)ub=`<div style="display:flex;justify-content:space-between;margin-bottom:10px"><span style="color:var(--muted)">کاربر:</span><b>${esc(opt.userName)}</b></div>`+ub}let db_='';if(opt.discount&&opt.discount>0){db_=`<div style="background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(6,182,212,.1));border:1px solid var(--success);border-radius:12px;padding:12px;margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="color:var(--muted);font-size:.82rem">سطح:</span><b style="color:var(--warning)">${esc(opt.loyaltyName||'')}</b></div><div style="display:flex;justify-content:space-between"><span style="color:var(--muted);font-size:.82rem">تخفیف:</span><b style="color:var(--success)">${opt.discount}٪</b></div></div>`}const hg=db.payment.gateway&&db.payment.gateway.trim()!=='';Swal.fire({title:'<i class="fas fa-receipt"></i> فاکتور',background:'var(--card)',color:'var(--text)',showConfirmButton:false,showCloseButton:true,html:`<div style="text-align:right;margin-top:15px"><div class="ibox" style="margin-bottom:20px"><div style="display:flex;justify-content:space-between;margin-bottom:10px;border-bottom:1px dashed var(--ibrs);padding-bottom:10px"><span style="color:var(--muted)">سفارش:</span><b>${esc(title)}</b></div>${ub}<div style="display:flex;justify-content:space-between;margin-bottom:12px"><span style="color:var(--muted)">قیمت پایه:</span><b>${fM(op)}</b></div>${db_}<div style="display:flex;justify-content:space-between;padding-top:10px;border-top:1px dashed var(--ibrs)"><span style="color:var(--muted);font-weight:bold">قابل پرداخت:</span><b style="font-size:1.1rem">${pt}</b></div></div><h4 style="color:var(--primary);margin-bottom:15px;text-align:center"><i class="fas fa-wallet"></i> پرداخت</h4>${hg?`<button onclick="goGw('${esc(title).replace(/'/g,'&#39;')}',${fp})" class="btn bs" style="width:100%;margin-bottom:10px"><i class="fas fa-credit-card"></i> آنلاین</button>`:`<button class="btn" style="width:100%;background:var(--sf);color:var(--muted);margin-bottom:10px" disabled><i class="fas fa-credit-card"></i> غیرفعال</button>`}<button onclick="document.getElementById('cpb').classList.toggle('hidden')" class="btn bp" style="width:100%"><i class="fas fa-exchange-alt"></i> کارت به کارت</button><div id="cpb" class="hidden" style="margin-top:15px;background:var(--ibg2);border:1px dashed var(--primary);border-radius:12px;padding:15px;text-align:center"><p style="font-size:.85rem;color:var(--muted);margin-bottom:10px">واریز کن:</p><div style="font-family:monospace;font-size:1.4rem;letter-spacing:2px;color:var(--success);margin-bottom:5px;direction:ltr">${esc(db.payment.card)}</div><p style="color:var(--warning);font-size:.9rem;margin-bottom:15px">${esc(db.payment.name)}</p><div style="display:flex;gap:10px"><button onclick="copy('${esc(db.payment.card)}','کپی')" class="btn bi" style="flex:1;font-size:.85rem"><i class="fas fa-copy"></i> کپی</button><a href="https://t.me/${(db.payment.telegram||'Trol6').replace('@','')}" target="_blank" class="btn bp" style="flex:2;font-size:.85rem;text-decoration:none"><i class="fab fa-telegram"></i> ارسال</a></div></div></div>`})}
 window.goGw=function(t,a){window.open(db.payment.gateway,'_blank');Swal.close();const at=(db.payment.telegram||'Trol6').replace('@','');const pt=encodeURIComponent(`سلام 👋\nپرداخت ✅\n\n📦 ${t}\n💰 ${Number(a).toLocaleString('fa-IR')} تومان\n🔢 آیدی: \n📸 رسید پیوست`);setTimeout(()=>{Swal.fire({html:`<div style="text-align:center"><div style="width:90px;height:90px;margin:0 auto 18px;border-radius:50%;background:radial-gradient(circle,rgba(16,185,129,.2),transparent 70%);display:flex;align-items:center;justify-content:center"><i class="fas fa-check" style="font-size:3rem;color:var(--success)"></i></div><h2 style="color:var(--success);font-size:1.3rem;margin-bottom:8px">درگاه باز شد!</h2><div style="text-align:right;padding:15px;background:var(--ibg);border-radius:14px;margin-bottom:15px"><div style="display:flex;gap:10px;padding:8px 0;font-size:.85rem"><div style="width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:bold">۱</div><div>پرداخت کن</div></div><div style="display:flex;gap:10px;padding:8px 0;font-size:.85rem"><div style="width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:bold">۲</div><div>رسید ذخیره</div></div><div style="display:flex;gap:10px;padding:8px 0;font-size:.85rem"><div style="width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:bold">۳</div><div>ارسال کن</div></div></div><a href="https://t.me/${at}?text=${pt}" target="_blank" class="btn bp" style="width:100%;text-decoration:none;padding:16px"><i class="fab fa-telegram"></i> ارسال رسید</a></div>`,background:'var(--card)',color:'var(--text)',confirmButtonText:'فهمیدم',confirmButtonColor:'var(--primary)'})},300)};
@@ -676,7 +573,9 @@ window.adm=function(t){const c=document.getElementById('admC');if(!c)return;c.in
 function tabMembers(c){planFilter='all';let c1=0,c2=0,c3=0,c6=0,c12=0,cp=0;db.users.forEach(u=>{let p=planGroup(u.dur);if(p===30)c1++;else if(p===60)c2++;else if(p===90)c3++;else if(p===180)c6++;else if(p===365)c12++;else if(p===999)cp++});c.innerHTML=`<div class="sbar"><span id="sball" class="sbadge active" onclick="setPFilter('all')"><i class="fas fa-users"></i> کل: ${db.users.length}</span><span id="sb30" class="sbadge" onclick="setPFilter(30)">۱ماه: ${c1}</span><span id="sb60" class="sbadge" onclick="setPFilter(60)">۲ماه: ${c2}</span><span id="sb90" class="sbadge" onclick="setPFilter(90)">۳ماه: ${c3}</span><span id="sb180" class="sbadge" onclick="setPFilter(180)">۶ماه: ${c6}</span><span id="sb365" class="sbadge" onclick="setPFilter(365)">۱سال: ${c12}</span><span id="sb999" class="sbadge" onclick="setPFilter(999)">دائمی: ${cp}</span></div><div style="display:flex;gap:10px;margin-bottom:15px"><input type="text" id="aSearch" oninput="renderUsers(this.value.toLowerCase().trim())" placeholder="جستجو..." style="margin:0;flex:1"><button class="btn bi" onclick="bulkExt()" style="padding:0 20px"><i class="fas fa-gift"></i> تمدید</button></div><div id="aList"></div>`;renderUsers('')}
 function tabRegister(c){c.innerHTML=`<p style="font-size:.85rem;color:var(--muted);margin-bottom:15px">اگر آیدی موجود باشد، تمدید می‌شود. هر ثبت یک اسلات لینک مصرف می‌کند.</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><input id="nn" placeholder="نام"><div class="num"><input id="ni" type="tel" inputmode="numeric" placeholder="آیدی"><button type="button" class="paste" onclick="pasteTo('ni')"><i class="fas fa-paste"></i> پیست</button></div></div><input id="nu" placeholder="یوزرنیم @"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><select id="nd"><option value="30">1 ماهه</option><option value="60">2 ماهه</option><option value="90">3 ماهه</option><option value="180">6 ماهه</option><option value="365">1 ساله</option><option value="99999">دائمی</option></select><div class="num"><input id="np" type="tel" inputmode="numeric" placeholder="مبلغ"><button type="button" class="paste" onclick="pasteTo('np')"><i class="fas fa-paste"></i> پیست</button></div></div><div style="display:flex;gap:10px;margin-top:10px"><button onclick="genReceipt()" class="btn bw" style="flex:1"><i class="fas fa-ticket-alt"></i> فیش</button><button onclick="addU()" class="btn bp" style="flex:2"><i class="fas fa-check"></i> ثبت</button></div>`}
 function tabFinance(c){const hg=db.payment.gateway&&db.payment.gateway.trim()!=='';c.innerHTML=`<h3 style="color:var(--info);margin-bottom:15px"><i class="fas fa-percent"></i> تخفیف</h3><div class="ibox" style="margin-bottom:25px;display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px"><div><label style="font-size:.8rem;color:var(--muted)">برنزی</label><input type="number" value="${db.discounts.bronze}" oninput="db.discounts.bronze=parseInt(this.value)||0;save()" style="margin:0;padding:10px"></div><div><label style="font-size:.8rem;color:var(--muted)">نقره</label><input type="number" value="${db.discounts.silver}" oninput="db.discounts.silver=parseInt(this.value)||0;save()" style="margin:0;padding:10px"></div><div><label style="font-size:.8rem;color:var(--muted)">طلایی</label><input type="number" value="${db.discounts.gold}" oninput="db.discounts.gold=parseInt(this.value)||0;save()" style="margin:0;padding:10px"></div><div><label style="font-size:.8rem;color:var(--muted)">الماس</label><input type="number" value="${db.discounts.diamond}" oninput="db.discounts.diamond=parseInt(this.value)||0;save()" style="margin:0;padding:10px"></div><div><label style="font-size:.8rem;color:var(--muted)">حماسی</label><input type="number" value="${db.discounts.epic||30}" oninput="db.discounts.epic=parseInt(this.value)||0;save()" style="margin:0;padding:10px"></div><div><label style="font-size:.8rem;color:var(--muted)">افسانه</label><input type="number" value="${db.discounts.legend||40}" oninput="db.discounts.legend=parseInt(this.value)||0;save()" style="margin:0;padding:10px"></div></div><h3 style="color:var(--success);margin-bottom:15px"><i class="fas fa-credit-card"></i> پرداخت</h3><div class="ibox" style="margin-bottom:20px"><input value="${esc(db.payment.card)}" oninput="db.payment.card=this.value;save()" placeholder="شماره کارت"><input value="${esc(db.payment.name)}" oninput="db.payment.name=this.value;save()" placeholder="نام صاحب"><input value="${esc(db.payment.telegram)}" oninput="db.payment.telegram=this.value;save()" placeholder="تلگرام (بدون @)"></div><h3 style="color:var(--info);margin-bottom:15px;display:flex;align-items:center;gap:8px"><i class="fas fa-shopping-cart"></i> درگاه <span class="gwst ${hg?'active':'inactive'}"><i class="fas ${hg?'fa-check-circle':'fa-times-circle'}"></i> ${hg?'فعال':'غیرفعال'}</span></h3><div class="gwbox"><input value="${esc(db.payment.gateway||'')}" oninput="db.payment.gateway=this.value;save();adm(3)" placeholder="https://daramet.com/..." style="direction:ltr;font-size:.85rem">${hg?`<a href="${esc(db.payment.gateway)}" target="_blank" class="btn bi" style="font-size:.82rem;text-decoration:none;margin-top:8px"><i class="fas fa-external-link-alt"></i> تست</a>`:''}</div><h3 style="color:var(--warning);margin-bottom:15px"><i class="fas fa-tags"></i> پلن‌ها</h3>`;db.ads.forEach((a,i)=>{c.innerHTML+=`<div class="ibox" style="margin-bottom:15px;border-right:3px solid var(--warning)"><input value="${esc(a.title)}" oninput="db.ads[${i}].title=this.value;save()" placeholder="نام"><input type="tel" value="${a.price}" oninput="db.ads[${i}].price=this.value;save()" placeholder="قیمت"><button onclick="db.ads.splice(${i},1);save();adm(3)" class="btn bd" style="width:100%"><i class="fas fa-trash"></i> حذف</button></div>`});c.innerHTML+=`<button onclick="db.ads.push({id:Date.now(),title:'پکیج جدید',price:'50000'});save();adm(3)" class="btn bp"><i class="fas fa-plus"></i> پلن جدید</button>`}
-function tabWar(c){const near=db.users.filter(u=>{const s=getS(u.start,u.dur);return s.days<=5&&s.rem>0});const exp=db.users.filter(u=>getS(u.start,u.dur).rem<=0);if(near.length>0){c.innerHTML+=`<h3 style="color:var(--warning);margin-bottom:15px"><i class="fas fa-exclamation-triangle"></i> رو به اتمام (${near.length})</h3>`;near.forEach(u=>{c.innerHTML+=`<div class="urow" style="border-color:var(--warning);padding:10px"><div><b>${esc(u.name)}</b><br><span class="timer" style="color:var(--text)">${getS(u.start,u.dur).days} روز</span></div><button onclick="editU(${u.id})" class="btn bw" style="padding:8px"><i class="fas fa-pen"></i></button></div>`})}c.innerHTML+=`<h3 style="color:var(--danger);margin:25px 0 15px"><i class="fas fa-skull"></i> منقضی (${exp.length})</h3>`;if(exp.length>0)exp.forEach(u=>{c.innerHTML+=`<div class="urow" style="border-color:var(--danger);padding:10px"><div><b>${esc(u.name)}</b><br><span style="font-size:.8rem">${esc(u.uid)}</span></div><div style="display:flex;gap:5px"><button onclick="editU(${u.id},true)" class="btn bw" style="padding:8px"><i class="fas fa-redo"></i></button><button onclick="delU(${u.id},4)" class="btn bd" style="padding:8px"><i class="fas fa-trash"></i></button></div></div>`});else c.innerHTML+='<p style="text-align:center;opacity:.5">خالی</p>';c.innerHTML+=`<div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap"><button onclick="copyWar()" class="btn bi" style="flex:1"><i class="fas fa-copy"></i> کپی</button><button onclick="exportAll()" class="btn bs" style="flex:1"><i class="fas fa-download"></i> بکاپ</button></div>`}
+function tabWar(c){const near=db.users.filter(u=>{const s=getS(u.start,u.dur);return s.days<=5&&s.rem>0});const exp=db.users.filter(u=>getS(u.start,u.dur).rem<=0);if(near.length>0){c.innerHTML+=`<h3 style="color:var(--warning);margin-bottom:15px"><i class="fas fa-exclamation-triangle"></i> رو به اتمام (${near.length})</h3>`;near.forEach(u=>{c.innerHTML+=`<div class="urow" style="border-color:var(--warning);padding:10px"><div><b>${esc(u.name)}</b><br><span class="timer" style="color:var(--text)">${getS(u.start,u.dur).days} روز</span></div><button onclick="editU(${u.id})" class="btn bw" style="padding:8px"><i class="fas fa-pen"></i></button></div>`})}c.innerHTML+=`<h3 style="color:var(--danger);margin:25px 0 15px"><i class="fas fa-skull"></i> منقضی (${exp.length})</h3>`;if(exp.length>0)exp.forEach(u=>{c.innerHTML+=`<div class="urow" style="border-color:var(--danger);padding:10px"><div><b>${esc(u.name)}</b><br><span style="font-size:.8rem">${esc(u.uid)}</span></div><div style="display:flex;gap:5px"><button onclick="editU(${u.id},true)" class="btn bw" style="padding:8px"><i class="fas fa-redo"></i></button><button onclick="delU(${u.id},4)" class="btn bd" style="padding:8px"><i class="fas fa-trash"></i></button></div></div>`});else c.innerHTML+='<p style="text-align:center;opacity:.5">خالی</p>';
+// 🎯 دکمه دانلود db.json اینجا اضافه شد
+c.innerHTML+=`<div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap"><button onclick="copyWar()" class="btn bi" style="flex:1"><i class="fas fa-copy"></i> کپی</button><button onclick="downloadDB()" class="btn bs" style="flex:1"><i class="fas fa-file-code"></i> دانلود db.json</button><button onclick="exportAll()" class="btn bp" style="flex:1"><i class="fas fa-download"></i> بکاپ HTML</button></div>`}
 function tabArchive(c){c.innerHTML=`<h3 style="color:#0ea5e9;margin-bottom:15px"><i class="fas fa-archive"></i> بایگانی</h3><div style="display:flex;gap:10px;margin-bottom:15px;flex-wrap:wrap"><button onclick="rebuild()" class="btn bw" style="flex:1"><i class="fas fa-tools"></i> بازسازی</button><button onclick="scanLegacy()" class="btn bi" style="flex:1"><i class="fas fa-search"></i> جستجو</button></div><input type="text" id="arcSearch" oninput="renderArc(this.value.toLowerCase().trim())" placeholder="جستجو..."><div id="arcList"></div>`;renderArc('')}
 function tabRevenue(c){const now=getPP(Date.now());const ys=[];for(let y=now.year-2;y<=now.year+2;y++)ys.push(y);c.innerHTML=`<h3 style="color:var(--success);margin-bottom:15px"><i class="fas fa-chart-line"></i> درآمد</h3><div class="revfg"><select id="ry" onchange="calcRev()">${ys.map(y=>`<option value="${y}" ${y===now.year?'selected':''}>${y}</option>`).join('')}</select><select id="rm" onchange="calcRev()">${PM.map((m,i)=>`<option value="${i+1}" ${i+1===now.month?'selected':''}>${m}</option>`).join('')}</select></div><div id="rvRes"></div><div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap"><button onclick="expRev()" class="btn bi" style="flex:1"><i class="fas fa-copy"></i> کپی</button><button onclick="exportAll()" class="btn bs" style="flex:1"><i class="fas fa-download"></i> بکاپ</button></div>`;calcRev()}
 window.calcRev=function(){const y=parseInt(document.getElementById('ry').value),m=parseInt(document.getElementById('rm').value);const r=document.getElementById('rvRes');const inv=db.history.filter(h=>{const p=getPP(h.dateAdded||h.start);return p.year===y&&p.month===m});let tot=0;inv.forEach(h=>{h._cp=parseInt(h.price)||0;tot+=h._cp});const avg=inv.length?Math.round(tot/inv.length):0;r.innerHTML=`<div class="revgrid"><div class="rev primary"><div class="lbl"><i class="fas fa-coins"></i> درآمد</div><div class="val">${fN(tot)}</div></div><div class="rev success"><div class="lbl"><i class="fas fa-shopping-bag"></i> فروش</div><div class="val">${fN(inv.length)}</div></div><div class="rev warning"><div class="lbl"><i class="fas fa-chart-simple"></i> میانگین</div><div class="val">${fN(avg)}</div></div><div class="rev info"><div class="lbl"><i class="fas fa-calendar"></i> ماه</div><div class="val" style="font-size:1rem">${PM[m-1]}</div></div></div>${inv.length===0?`<div style="text-align:center;padding:40px;color:var(--muted)"><i class="fas fa-inbox" style="font-size:2.5rem;opacity:.3;display:block;margin-bottom:12px"></i>فاکتوری نیست</div>`:`<div class="rtable"><div class="rth"><div>کاربر</div><div>پلن</div><div>تاریخ</div><div>مبلغ</div></div>${inv.slice().reverse().map(h=>`<div class="rtr"><div><b>${esc(h.name||'—')}</b></div><div style="font-size:.78rem">${h.dur>5000?'دائمی':h.dur+' روز'}</div><div style="font-size:.72rem;opacity:.7">${pD(h.dateAdded||h.start)}</div><div class="m">${h._cp>0?fN(h._cp):'—'}</div></div>`).join('')}</div>`}`};
@@ -704,7 +603,6 @@ window.rebuild=function(){Swal.fire({title:'بازسازی',html:'از کارب�
 window.scanLegacy=function(){const keys=['vip_promax_db','vip_pro_db','vip_mory_db','mory_db','vip_users'];let f=0,a=0;keys.forEach(k=>{try{const o=JSON.parse(localStorage.getItem(k)||'null');if(!o)return;f++;if(o.history&&Array.isArray(o.history))o.history.forEach(h=>{const ex=db.history.some(x=>String(x.uid)===String(h.uid)&&x.dateAdded===h.dateAdded);if(!ex){db.history.push(h);a++}})}catch(e){}});if(f===0)return Toast.fire({icon:'info',title:'چیزی نبود'});save();adm(5);Toast.fire({icon:'success',title:`${f} دیتابیس، ${a} سابقه`})};
 window.copyWar=function(){const n=db.users.filter(u=>{const s=getS(u.start,u.dur);return s.days<=5&&s.rem>0});const e=db.users.filter(u=>getS(u.start,u.dur).rem<=0);if(!n.length&&!e.length)return Toast.fire({icon:'info',title:'خالی'});let t='گزارش\n\n';if(n.length>0){t+='رو به اتمام:\n';n.forEach((u,i)=>{t+=`${i+1}. ${u.name} | ${u.uid} | ${getS(u.start,u.dur).days} روز\n`})}if(e.length>0){t+='\nمنقضی:\n';e.forEach((u,i)=>{t+=`${i+1}. ${u.name} | ${u.uid}\n`})}copy(t,'کپی')};
 
-// ═══ RECEIPT ═══
 window.genReceipt=function(){
     const n=document.getElementById('nn').value,u=document.getElementById('ni').value,s=document.getElementById('nd'),d=parseInt(s.value);
     if(!n||!u)return Toast.fire({icon:'error',title:'نام و آیدی'});
@@ -736,18 +634,7 @@ window.genReceipt=function(){
             const holder=document.querySelector('.swal2-html-container');
             if(holder){
                 const extras=document.createElement('div');
-                // 🎯 دکمه‌های شیک VIP (بدون رنگ‌های دلقکی)
-                extras.innerHTML=`<div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
-                    <button onclick="shareTicket(event)" style="flex:1 1 100%;padding:14px;border-radius:12px;border:1px solid rgba(251,191,36,.4);background:rgba(251,191,36,.1);color:#fbbf24;font-weight:bold;font-size:0.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:0.3s" onmouseover="this.style.background='rgba(251,191,36,.2)'" onmouseout="this.style.background='rgba(251,191,36,.1)'">
-                        <i class="fab fa-telegram"></i> ارسال به تلگرام
-                    </button>
-                    <button onclick="downloadTicket(event)" style="flex:1;padding:14px;border-radius:12px;border:1px solid rgba(251,191,36,.4);background:transparent;color:#fbbf24;font-weight:bold;font-size:0.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:0.3s" onmouseover="this.style.background='rgba(251,191,36,.1)'" onmouseout="this.style.background='transparent'">
-                        <i class="fas fa-download"></i> دانلود
-                    </button>
-                    <button onclick="Swal.close()" style="flex:1;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:transparent;color:rgba(255,255,255,.7);font-weight:bold;font-size:0.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:0.3s" onmouseover="this.style.background='rgba(255,255,255,.05)'" onmouseout="this.style.background='transparent'">
-                        بستن
-                    </button>
-                </div>`;
+                extras.innerHTML=`<div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap"><button onclick="shareTicket(event)" style="flex:1 1 100%;padding:14px;border-radius:12px;border:1px solid rgba(251,191,36,.4);background:rgba(251,191,36,.1);color:#fbbf24;font-weight:bold;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" onmouseover="this.style.background='rgba(251,191,36,.2)'" onmouseout="this.style.background='rgba(251,191,36,.1)'"><i class="fab fa-telegram"></i> ارسال به تلگرام</button><button onclick="downloadTicket(event)" style="flex:1;padding:14px;border-radius:12px;border:1px solid rgba(251,191,36,.4);background:transparent;color:#fbbf24;font-weight:bold;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" onmouseover="this.style.background='rgba(251,191,36,.1)'" onmouseout="this.style.background='transparent'"><i class="fas fa-download"></i> دانلود</button><button onclick="Swal.close()" style="flex:1;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:transparent;color:rgba(255,255,255,.7);font-weight:bold;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" onmouseover="this.style.background='rgba(255,255,255,.05)'" onmouseout="this.style.background='transparent'">بستن</button></div>`;
                 holder.appendChild(extras);
             }
         }
@@ -765,69 +652,20 @@ window.setTicketTheme=function(theme){
 };
 
 async function captureTicket(){
-    const rtemp = document.getElementById('rtemp');
-    const ticket = document.getElementById('tcap');
-    if(!rtemp || !ticket) throw new Error('عنصر فیش پیدا نشد');
-    
-    const origStyle = rtemp.getAttribute('style') || '';
-    
+    const ticket = document.querySelector('.swal2-html-container .twrap');
+    if(!ticket) throw new Error('فیش پیدا نشد');
+    const origStyle = ticket.getAttribute('style') || '';
+    ticket.style.padding = '15px';
+    ticket.style.background = '#0d0618';
     try {
-        // نمایش offscreen (خارج از دید ولی قابل رندر)
-        rtemp.style.cssText = 'display:block !important;position:fixed !important;top:0 !important;left:-9999px !important;padding:20px !important;background:#0a0518 !important;';
-        
-        await new Promise(r => setTimeout(r, 400));
-        
-        let rect = ticket.getBoundingClientRect();
-        console.log('[capture] size:', rect.width, 'x', rect.height);
-        
-        if(rect.width < 10 || rect.height < 10) {
-            await new Promise(r => setTimeout(r, 500));
-            rect = ticket.getBoundingClientRect();
-            console.log('[capture] retry:', rect.width, 'x', rect.height);
-        }
-        
-        if(rect.width < 10) throw new Error('فیش رندر نشد');
-        
-        const canvas = await html2canvas(ticket, {
-            backgroundColor: '#0a0518',
-            scale: 2,
-            useCORS: true,
-            logging: false,
-            allowTaint: true
-        });
-        
-        console.log('[capture] canvas:', canvas?.width, 'x', canvas?.height);
-        
-        if(!canvas || canvas.width === 0) throw new Error('Canvas خالی');
-        
-        let blob = await new Promise(resolve => {
-            try {
-                canvas.toBlob(b => resolve(b), 'image/png', 0.95);
-            } catch(e) {
-                console.error('[capture] toBlob:', e);
-                resolve(null);
-            }
-        });
-        
-        if(!blob) {
-            try {
-                const dataUrl = canvas.toDataURL('image/png');
-                if(dataUrl && dataUrl.length > 100) {
-                    const res = await fetch(dataUrl);
-                    blob = await res.blob();
-                    console.log('[capture] dataURL:', blob.size, 'bytes');
-                }
-            } catch(e) {
-                console.error('[capture] dataURL:', e);
-            }
-        }
-        
-        if(!blob) throw new Error('تولید عکس شکست خورد');
-        
-        console.log('[capture] SUCCESS:', blob.size, 'bytes');
+        await new Promise(r => setTimeout(r, 100));
+        const canvas = await html2canvas(ticket, {backgroundColor: '#0d0618', scale: 2, useCORS: true, logging: false});
+        if(!canvas || canvas.width === 0) throw new Error('Canvas خالی است');
+        let blob = await new Promise(resolve => {canvas.toBlob(b => resolve(b), 'image/png', 0.95);});
+        if(!blob) throw new Error('خطا در ایجاد فایل عکس');
         return blob;
     } finally {
-        rtemp.setAttribute('style', origStyle);
+        ticket.setAttribute('style', origStyle);
     }
 }
 
@@ -845,7 +683,7 @@ window.downloadTicket=async function(ev){
     }catch(err){console.error('Download err:',err);Toast.fire({icon:'error',title:'خطا: '+(err?.message||'نامشخص'),timer:5000})}finally{if(btn)btn.disabled=false}
 };
 
-window.shareTicket = async function(ev){
+window.shareTicket=async function(ev){
     const btn = ev?.currentTarget;
     if(btn) btn.disabled = true;
     const uid = (document.getElementById('ru')?.innerText || 'user').trim();
@@ -883,59 +721,25 @@ window.shareTicket = async function(ev){
     if(btn) btn.disabled = false;
 };
 
-// ═══ KING ARRIVAL ═══
-window.playKingArrival=function(cb){
-    const o=document.createElement('div');o.className='king-overlay';
-    let p='';for(let i=0;i<40;i++){const s=Math.random()*6+3;p+=`<div class="king-particle" style="width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${Math.random()*3+3}s;animation-delay:${Math.random()*2}s"></div>`}
-    o.innerHTML=`<div class="king-rays"></div><div class="king-particles">${p}</div><div class="king-core"><div class="king-crown-wrap"><i class="fas fa-crown king-crown"></i></div><h1 class="king-title">ADMIN</h1><p class="king-sub">WELCOME BACK, YOUR MAJESTY</p></div>`;
-    document.body.appendChild(o);
-    setTimeout(()=>{try{confetti({particleCount:100,spread:100,origin:{y:.5},colors:['#fbbf24','#f59e0b','#fde68a','#dc2626','#fff']})}catch(e){}},1400);
-    setTimeout(()=>{try{confetti({particleCount:80,spread:80,origin:{x:.2,y:.5},colors:['#fbbf24','#f59e0b','#fde68a']});confetti({particleCount:80,spread:80,origin:{x:.8,y:.5},colors:['#fbbf24','#f59e0b','#fde68a']})}catch(e){}},1800);
-    setTimeout(()=>{o.classList.add('closing');setTimeout(()=>{o.remove();if(cb)cb()},600)},3200);
-};
+window.playKingArrival=function(cb){const o=document.createElement('div');o.className='king-overlay';let p='';for(let i=0;i<40;i++){const s=Math.random()*6+3;p+=`<div class="king-particle" style="width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${Math.random()*3+3}s;animation-delay:${Math.random()*2}s"></div>`}o.innerHTML=`<div class="king-rays"></div><div class="king-particles">${p}</div><div class="king-core"><div class="king-crown-wrap"><i class="fas fa-crown king-crown"></i></div><h1 class="king-title">ADMIN</h1><p class="king-sub">WELCOME BACK, YOUR MAJESTY</p></div>`;document.body.appendChild(o);setTimeout(()=>{try{confetti({particleCount:100,spread:100,origin:{y:.5},colors:['#fbbf24','#f59e0b','#fde68a','#dc2626','#fff']})}catch(e){}},1400);setTimeout(()=>{try{confetti({particleCount:80,spread:80,origin:{x:.2,y:.5},colors:['#fbbf24','#f59e0b','#fde68a']});confetti({particleCount:80,spread:80,origin:{x:.8,y:.5},colors:['#fbbf24','#f59e0b','#fde68a']})}catch(e){}},1800);setTimeout(()=>{o.classList.add('closing');setTimeout(()=>{o.remove();if(cb)cb()},600)},3200)};
 
-window.showLogin=function(){
-    const lb=document.getElementById('lockBtn');
-    if(lb){lb.style.transition='all .3s ease';lb.style.transform='scale(1.15)';lb.style.boxShadow='0 0 30px #fbbf24,0 0 60px #fbbf24';lb.style.background='linear-gradient(135deg,#fbbf24,#f59e0b)';lb.style.color='#000';lb.style.borderColor='#fbbf24'}
-    setTimeout(()=>{
-        playKingArrival(()=>{
-            if(lb){lb.style.transform='';lb.style.boxShadow='';lb.style.background='';lb.style.color='';lb.style.borderColor=''}
-            Swal.fire({title:'<i class="fas fa-crown" style="color:#fbbf24"></i> ورود مدیریت',input:'password',inputPlaceholder:'رمز عبور',background:'var(--card)',color:'var(--text)',confirmButtonColor:'#fbbf24',confirmButtonText:'ورود',showCancelButton:true,cancelButtonText:'لغو'}).then(v=>{
-                if(v.value==='mory'){
-                    stopCrowns();
-                    document.getElementById('vUser').classList.add('hidden');document.getElementById('vAdmin').classList.remove('hidden');document.getElementById('lockBtn').classList.add('hidden');adm(1);
-                    setTimeout(()=>{
-                        const t=db.users.length,a=db.users.filter(u=>getS(u.start,u.dur).rem>0).length,e=db.users.filter(u=>getS(u.start,u.dur).rem<=0).length,n=db.users.filter(u=>{const s=getS(u.start,u.dur).rem;return Math.ceil(s/86400000)<=5&&s>0}).length;
-                        Swal.fire({title:'',html:`<div style="text-align:center"><div style="display:inline-flex;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.35),rgba(245,158,11,.15));border:2px solid rgba(251,191,36,.7);align-items:center;justify-content:center;font-size:2.4rem;color:#fbbf24;box-shadow:0 0 50px rgba(251,191,36,.7);margin-bottom:8px"><i class="fas fa-crown"></i></div><h2 style="color:#fbbf24;margin:5px 0 4px;font-size:1.5rem">خوش آمدی فرمانده</h2><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:right;margin-top:15px"><div style="background:var(--ibg);border-radius:14px;padding:14px;border-right:3px solid var(--primary)"><div style="color:var(--primary);font-size:1.3rem;margin-bottom:6px"><i class="fas fa-users"></i></div><div style="font-size:.72rem;color:var(--muted)">کل</div><div style="font-size:1.5rem;font-weight:900;color:var(--primary)">${t}</div></div><div style="background:var(--ibg);border-radius:14px;padding:14px;border-right:3px solid var(--success)"><div style="color:var(--success);font-size:1.3rem;margin-bottom:6px"><i class="fas fa-check-circle"></i></div><div style="font-size:.72rem;color:var(--muted)">فعال</div><div style="font-size:1.5rem;font-weight:900;color:var(--success)">${a}</div></div><div style="background:var(--ibg);border-radius:14px;padding:14px;border-right:3px solid var(--warning)"><div style="color:var(--warning);font-size:1.3rem;margin-bottom:6px"><i class="fas fa-exclamation-triangle"></i></div><div style="font-size:.72rem;color:var(--muted)">زیر ۵ روز</div><div style="font-size:1.5rem;font-weight:900;color:var(--warning)">${n}</div></div><div style="background:var(--ibg);border-radius:14px;padding:14px;border-right:3px solid var(--danger)"><div style="color:var(--danger);font-size:1.3rem;margin-bottom:6px"><i class="fas fa-skull"></i></div><div style="font-size:.72rem;color:var(--muted)">منقضی</div><div style="font-size:1.5rem;font-weight:900;color:var(--danger)">${e}</div></div></div></div>`,background:'var(--card)',color:'var(--text)',confirmButtonText:'شروع',confirmButtonColor:'#fbbf24',width:'420px'});
-                        try{confetti({particleCount:150,spread:120,colors:['#fbbf24','#f59e0b','#fde68a','#dc2626']})}catch(e){}
-                    },400);
-                }else if(v.value)Toast.fire({icon:'error',title:'رمز اشتباه'});
-            });
-        });
-    },200);
-};
+window.showLogin=function(){const lb=document.getElementById('lockBtn');if(lb){lb.style.transition='all .3s ease';lb.style.transform='scale(1.15)';lb.style.boxShadow='0 0 30px #fbbf24,0 0 60px #fbbf24';lb.style.background='linear-gradient(135deg,#fbbf24,#f59e0b)';lb.style.color='#000';lb.style.borderColor='#fbbf24'}setTimeout(()=>{playKingArrival(()=>{if(lb){lb.style.transform='';lb.style.boxShadow='';lb.style.background='';lb.style.color='';lb.style.borderColor=''}Swal.fire({title:'<i class="fas fa-crown" style="color:#fbbf24"></i> ورود مدیریت',input:'password',inputPlaceholder:'رمز عبور',background:'var(--card)',color:'var(--text)',confirmButtonColor:'#fbbf24',confirmButtonText:'ورود',showCancelButton:true,cancelButtonText:'لغو'}).then(v=>{if(v.value==='mory'){stopCrowns();document.getElementById('vUser').classList.add('hidden');document.getElementById('vAdmin').classList.remove('hidden');document.getElementById('lockBtn').classList.add('hidden');adm(1);setTimeout(()=>{const t=db.users.length,a=db.users.filter(u=>getS(u.start,u.dur).rem>0).length,e=db.users.filter(u=>getS(u.start,u.dur).rem<=0).length,n=db.users.filter(u=>{const s=getS(u.start,u.dur).rem;return Math.ceil(s/86400000)<=5&&s>0}).length;Swal.fire({title:'',html:`<div style="text-align:center"><div style="display:inline-flex;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.35),rgba(245,158,11,.15));border:2px solid rgba(251,191,36,.7);align-items:center;justify-content:center;font-size:2.4rem;color:#fbbf24;box-shadow:0 0 50px rgba(251,191,36,.7);margin-bottom:8px"><i class="fas fa-crown"></i></div><h2 style="color:#fbbf24;margin:5px 0 4px;font-size:1.5rem">خوش آمدی فرمانده</h2><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:right;margin-top:15px"><div style="background:var(--ibg);border-radius:14px;padding:14px;border-right:3px solid var(--primary)"><div style="color:var(--primary);font-size:1.3rem;margin-bottom:6px"><i class="fas fa-users"></i></div><div style="font-size:.72rem;color:var(--muted)">کل</div><div style="font-size:1.5rem;font-weight:900;color:var(--primary)">${t}</div></div><div style="background:var(--ibg);border-radius:14px;padding:14px;border-right:3px solid var(--success)"><div style="color:var(--success);font-size:1.3rem;margin-bottom:6px"><i class="fas fa-check-circle"></i></div><div style="font-size:.72rem;color:var(--muted)">فعال</div><div style="font-size:1.5rem;font-weight:900;color:var(--success)">${a}</div></div><div style="background:var(--ibg);border-radius:14px;padding:14px;border-right:3px solid var(--warning)"><div style="color:var(--warning);font-size:1.3rem;margin-bottom:6px"><i class="fas fa-exclamation-triangle"></i></div><div style="font-size:.72rem;color:var(--muted)">زیر ۵ روز</div><div style="font-size:1.5rem;font-weight:900;color:var(--warning)">${n}</div></div><div style="background:var(--ibg);border-radius:14px;padding:14px;border-right:3px solid var(--danger)"><div style="color:var(--danger);font-size:1.3rem;margin-bottom:6px"><i class="fas fa-skull"></i></div><div style="font-size:.72rem;color:var(--muted)">منقضی</div><div style="font-size:1.5rem;font-weight:900;color:var(--danger)">${e}</div></div></div></div>`,background:'var(--card)',color:'var(--text)',confirmButtonText:'شروع',confirmButtonColor:'#fbbf24',width:'420px'});try{confetti({particleCount:150,spread:120,colors:['#fbbf24','#f59e0b','#fde68a','#dc2626']})}catch(e){}},400)}else if(v.value)Toast.fire({icon:'error',title:'رمز اشتباه'})})})},200)};
 
-window.exportAll=function(){
-    const cl=document.documentElement.cloneNode(true);
-    db._updatedAt=Date.now();
-    cl.querySelector('#dbb').innerText='window.PRELOADED_DB = '+JSON.stringify(db)+';';
-    cl.querySelector('#vAdmin').classList.add('hidden');cl.querySelector('#vUser').classList.remove('hidden');cl.querySelector('#lockBtn').classList.remove('hidden');
-    cl.querySelector('#admC').innerHTML='';cl.querySelector('#adl').innerHTML='';cl.querySelector('#qres').innerHTML='';cl.querySelector('#qres').classList.add('hidden');
-    if(cl.querySelector('#q'))cl.querySelector('#q').value='';
-    const s=cl.querySelector('.swal2-container');if(s)s.remove();
-    cl.querySelector('#drawer').classList.remove('open');cl.querySelector('#overlay').classList.remove('open');cl.querySelector('#ho').classList.add('hidden');
-    const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(["<!DOCTYPE html>\n"+cl.outerHTML],{type:'text/html;charset=utf-8'}));a.download='AnimeBlack_VIP.html';a.click();Toast.fire({icon:'success',title:'بکاپ'});
-};
+window.exportAll=function(){const cl=document.documentElement.cloneNode(true);db._updatedAt=Date.now();cl.querySelector('#dbb').innerText='window.PRELOADED_DB = '+JSON.stringify(db)+';';cl.querySelector('#vAdmin').classList.add('hidden');cl.querySelector('#vUser').classList.remove('hidden');cl.querySelector('#lockBtn').classList.remove('hidden');cl.querySelector('#admC').innerHTML='';cl.querySelector('#adl').innerHTML='';cl.querySelector('#qres').innerHTML='';cl.querySelector('#qres').classList.add('hidden');if(cl.querySelector('#q'))cl.querySelector('#q').value='';const s=cl.querySelector('.swal2-container');if(s)s.remove();cl.querySelector('#drawer').classList.remove('open');cl.querySelector('#overlay').classList.remove('open');cl.querySelector('#ho').classList.add('hidden');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(["<!DOCTYPE html>\n"+cl.outerHTML],{type:'text/html;charset=utf-8'}));a.download='AnimeBlack_VIP.html';a.click();Toast.fire({icon:'success',title:'بکاپ'})};
 
-applyPref();
-renderColors();
-renderAds();
-genSnowSearch();
-startCrowns();
+async function initApp() {
+    await loadDB();
+    applyPref();
+    renderColors();
+    renderAds();
+    genSnowSearch();
+    startCrowns();
 
-setInterval(()=>{document.querySelectorAll('.timer').forEach(el=>{const e=el.getAttribute('data-end');if(e)el.innerText=fmtT(e-Date.now())})},1000);
+    setInterval(()=>{document.querySelectorAll('.timer').forEach(el=>{const e=el.getAttribute('data-end');if(e)el.innerText=fmtT(e-Date.now())})},1000);
 
-console.log('✅ ANIME BLACK VIP | Users:',db.users.length,'| Links:',db.tgLinks.length);
+    console.log('✅ ANIME BLACK VIP | Users:',db.users.length,'| Links:',db.tgLinks.length);
+}
+initApp();
 </script>
 </body>
 </html>
